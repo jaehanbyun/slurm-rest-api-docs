@@ -282,6 +282,86 @@ def extract_example_data(soup: BeautifulSoup, method: str, path: str) -> str:
     
     return None
 
+def extract_request_body_example(soup: BeautifulSoup, method: str, path: str) -> str:
+    """Extract example request body data for a specific endpoint from the HTML
+
+    The Slurm REST API docs often have separate sections for request and response
+    examples. This function tries to find request-oriented examples by looking
+    for headings that mention request / body / input near the endpoint.
+    """
+    code_blocks = soup.find_all('code')
+
+    for code in code_blocks:
+        text = code.get_text().strip()
+        # Match with optional trailing slash
+        endpoint_pattern = f"{method}\\s+{re.escape(path)}/?"
+
+        if re.search(endpoint_pattern, text, re.IGNORECASE):
+            current = code
+
+            # Search forward for a heading that looks like a request example
+            for _ in range(150):
+                current = current.find_next()
+                if not current:
+                    break
+
+                if current.name in ['h3', 'h4', 'h2', 'h5']:
+                    heading_text = current.get_text().lower()
+
+                    # Prefer headings that explicitly mention request/body/input
+                    if any(keyword in heading_text for keyword in [
+                        'example request',
+                        'request body',
+                        'request data',
+                        'input data',
+                        'input body',
+                        'request'
+                    ]):
+                        search_elem = current
+
+                        # Look at the next few elements for JSON
+                        for _ in range(10):
+                            search_elem = search_elem.find_next()
+                            if not search_elem:
+                                break
+
+                            elem_text = search_elem.get_text().strip()
+
+                            # Skip Content-Type headers
+                            if 'content-type' in elem_text.lower() and 'application/json' in elem_text.lower():
+                                continue
+
+                            # Direct JSON in pre/code
+                            if search_elem.name in ['pre', 'code']:
+                                example_text = elem_text
+                                if example_text.startswith('{') or example_text.startswith('['):
+                                    return example_text
+
+                            # JSON wrapped in div/p
+                            code_elem = search_elem.find('code') or search_elem.find('pre')
+                            if code_elem:
+                                example_text = code_elem.get_text().strip()
+                                if example_text.startswith('{') or example_text.startswith('['):
+                                    return example_text
+
+                            # Try to extract JSON substring
+                            if search_elem.name in ['p', 'div', 'pre']:
+                                json_match = re.search(r'(\{.*\}|\[.*\])', elem_text, re.DOTALL)
+                                if json_match:
+                                    return json_match.group(1)
+                                if elem_text.startswith('{') or elem_text.startswith('['):
+                                    return elem_text
+
+                    # If we hit a generic "Example data"/"Example" heading before a
+                    # specific request heading, we skip it here because that's likely
+                    # the response example which is already handled by extract_example_data
+
+                # Stop if we hit another endpoint definition
+                if current.name == 'code' and re.search(r'^(get|post|put|delete|patch)\s+/', current.get_text().strip(), re.IGNORECASE):
+                    break
+
+    return None
+
 def expand_refs_in_spec(spec: Dict[str, Any]) -> Dict[str, Any]:
     """Expand $ref references to inline schemas for better visibility in Swagger UI"""
     def expand_ref(obj: Any, schemas: Dict[str, Any], visited: set = None, schema_name_hint: str = None) -> Any:
@@ -430,8 +510,12 @@ def parse_slurm_api_docs(html_content: str, server_url: str = "http://localhost:
             # Extract return type for this endpoint (use original path)
             return_type = extract_return_type(soup, method, original_path)
             
-            # Extract example data for this endpoint (use original path)
+            # Extract example response data for this endpoint (use original path)
             example_data = extract_example_data(soup, method, original_path)
+            # Extract example request body data (for methods that usually have a body)
+            request_example_data = None
+            if method in ['post', 'put', 'patch']:
+                request_example_data = extract_request_body_example(soup, method, original_path)
             
             # Create response schema
             if return_type:
@@ -495,15 +579,33 @@ def parse_slurm_api_docs(html_content: str, server_url: str = "http://localhost:
             
             # Add request body for POST, PUT, PATCH
             if method in ['post', 'put', 'patch']:
-                operation["requestBody"] = {
-                    "content": {
-                        "application/json": {
-                            "schema": {
-                                "type": "object"
+                request_schema = None
+                # Prefer dedicated request example if available
+                if request_example_data:
+                    request_schema = parse_example_to_schema(request_example_data)
+                # Fallback: if we at least have response example, use its structure
+                elif example_data:
+                    request_schema = parse_example_to_schema(example_data)
+                
+                if request_schema:
+                    operation["requestBody"] = {
+                        "content": {
+                            "application/json": {
+                                "schema": request_schema
                             }
                         }
                     }
-                }
+                else:
+                    # Final fallback: generic object
+                    operation["requestBody"] = {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
             
             openapi_spec["paths"][path][method] = operation
     

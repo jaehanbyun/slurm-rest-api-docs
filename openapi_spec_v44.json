@@ -13577,7 +13577,139 @@
           "content": {
             "application/json": {
               "schema": {
-                "type": "object"
+                "type": "object",
+                "properties": {
+                  "meta": {
+                    "type": "object",
+                    "properties": {
+                      "slurm": {
+                        "type": "object",
+                        "properties": {
+                          "cluster": {
+                            "type": "string"
+                          },
+                          "release": {
+                            "type": "string"
+                          },
+                          "version": {
+                            "type": "object",
+                            "properties": {
+                              "major": {
+                                "type": "string"
+                              },
+                              "minor": {
+                                "type": "string"
+                              },
+                              "micro": {
+                                "type": "string"
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "plugin": {
+                        "type": "object",
+                        "properties": {
+                          "accounting_storage": {
+                            "type": "string"
+                          },
+                          "name": {
+                            "type": "string"
+                          },
+                          "type": {
+                            "type": "string"
+                          },
+                          "data_parser": {
+                            "type": "string"
+                          }
+                        }
+                      },
+                      "client": {
+                        "type": "object",
+                        "properties": {
+                          "source": {
+                            "type": "string"
+                          },
+                          "user": {
+                            "type": "string"
+                          },
+                          "group": {
+                            "type": "string"
+                          }
+                        }
+                      },
+                      "command": {
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  },
+                  "warnings": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "description": {
+                          "type": "string"
+                        },
+                        "source": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  },
+                  "results": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "job_id": {
+                          "type": "integer"
+                        },
+                        "why": {
+                          "type": "string"
+                        },
+                        "error_code": {
+                          "type": "integer"
+                        },
+                        "step_id": {
+                          "type": "string"
+                        },
+                        "error": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  },
+                  "errors": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "description": {
+                          "type": "string"
+                        },
+                        "source": {
+                          "type": "string"
+                        },
+                        "error": {
+                          "type": "string"
+                        },
+                        "error_number": {
+                          "type": "integer"
+                        }
+                      }
+                    }
+                  }
+                },
+                "required": [
+                  "meta",
+                  "warnings",
+                  "results",
+                  "errors"
+                ]
               }
             }
           }
@@ -17987,7 +18119,115 @@
           "content": {
             "application/json": {
               "schema": {
-                "type": "object"
+                "type": "object",
+                "properties": {
+                  "meta": {
+                    "type": "object",
+                    "properties": {
+                      "slurm": {
+                        "type": "object",
+                        "properties": {
+                          "cluster": {
+                            "type": "string"
+                          },
+                          "release": {
+                            "type": "string"
+                          },
+                          "version": {
+                            "type": "object",
+                            "properties": {
+                              "major": {
+                                "type": "string"
+                              },
+                              "minor": {
+                                "type": "string"
+                              },
+                              "micro": {
+                                "type": "string"
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "plugin": {
+                        "type": "object",
+                        "properties": {
+                          "accounting_storage": {
+                            "type": "string"
+                          },
+                          "name": {
+                            "type": "string"
+                          },
+                          "type": {
+                            "type": "string"
+                          },
+                          "data_parser": {
+                            "type": "string"
+                          }
+                        }
+                      },
+                      "client": {
+                        "type": "object",
+                        "properties": {
+                          "source": {
+                            "type": "string"
+                          },
+                          "user": {
+                            "type": "string"
+                          },
+                          "group": {
+                            "type": "string"
+                          }
+                        }
+                      },
+                      "command": {
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  },
+                  "warnings": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "description": {
+                          "type": "string"
+                        },
+                        "source": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  },
+                  "errors": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "description": {
+                          "type": "string"
+                        },
+                        "source": {
+                          "type": "string"
+                        },
+                        "error": {
+                          "type": "string"
+                        },
+                        "error_number": {
+                          "type": "integer"
+                        }
+                      }
+                    }
+                  }
+                },
+                "required": [
+                  "meta",
+                  "warnings",
+                  "errors"
+                ]
               }
             }
           }
@@ -23911,7 +24151,115 @@
           "content": {
             "application/json": {
               "schema": {
-                "type": "object"
+                "type": "object",
+                "properties": {
+                  "meta": {
+                    "type": "object",
+                    "properties": {
+                      "slurm": {
+                        "type": "object",
+                        "properties": {
+                          "cluster": {
+                            "type": "string"
+                          },
+                          "release": {
+                            "type": "string"
+                          },
+                          "version": {
+                            "type": "object",
+                            "properties": {
+                              "major": {
+                                "type": "string"
+                              },
+                              "minor": {
+                                "type": "string"
+                              },
+                              "micro": {
+                                "type": "string"
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "plugin": {
+                        "type": "object",
+                        "properties": {
+                          "accounting_storage": {
+                            "type": "string"
+                          },
+                          "name": {
+                            "type": "string"
+                          },
+                          "type": {
+                            "type": "string"
+                          },
+                          "data_parser": {
+                            "type": "string"
+                          }
+                        }
+                      },
+                      "client": {
+                        "type": "object",
+                        "properties": {
+                          "source": {
+                            "type": "string"
+                          },
+                          "user": {
+                            "type": "string"
+                          },
+                          "group": {
+                            "type": "string"
+                          }
+                        }
+                      },
+                      "command": {
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  },
+                  "warnings": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "description": {
+                          "type": "string"
+                        },
+                        "source": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  },
+                  "errors": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "description": {
+                          "type": "string"
+                        },
+                        "source": {
+                          "type": "string"
+                        },
+                        "error": {
+                          "type": "string"
+                        },
+                        "error_number": {
+                          "type": "integer"
+                        }
+                      }
+                    }
+                  }
+                },
+                "required": [
+                  "meta",
+                  "warnings",
+                  "errors"
+                ]
               }
             }
           }
@@ -27627,7 +27975,298 @@
           "content": {
             "application/json": {
               "schema": {
-                "type": "object"
+                "type": "object",
+                "properties": {
+                  "reservations": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "end_time": {
+                          "type": "object",
+                          "properties": {
+                            "number": {
+                              "type": "integer"
+                            },
+                            "set": {
+                              "type": "boolean"
+                            },
+                            "infinite": {
+                              "type": "boolean"
+                            }
+                          }
+                        },
+                        "flags": {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          }
+                        },
+                        "groups": {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          }
+                        },
+                        "users": {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          }
+                        },
+                        "max_start_delay": {
+                          "type": "object",
+                          "properties": {
+                            "number": {
+                              "type": "integer"
+                            },
+                            "set": {
+                              "type": "boolean"
+                            },
+                            "infinite": {
+                              "type": "boolean"
+                            }
+                          }
+                        },
+                        "duration": {
+                          "type": "object",
+                          "properties": {
+                            "number": {
+                              "type": "integer"
+                            },
+                            "set": {
+                              "type": "boolean"
+                            },
+                            "infinite": {
+                              "type": "boolean"
+                            }
+                          }
+                        },
+                        "features": {
+                          "type": "string"
+                        },
+                        "start_time": {
+                          "type": "object",
+                          "properties": {
+                            "number": {
+                              "type": "integer"
+                            },
+                            "set": {
+                              "type": "boolean"
+                            },
+                            "infinite": {
+                              "type": "boolean"
+                            }
+                          }
+                        },
+                        "burst_buffer": {
+                          "type": "string"
+                        },
+                        "licenses": {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          }
+                        },
+                        "partition": {
+                          "type": "string"
+                        },
+                        "name": {
+                          "type": "string"
+                        },
+                        "comment": {
+                          "type": "string"
+                        },
+                        "tres": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "name": {
+                                "type": "string"
+                              },
+                              "count": {
+                                "type": "integer"
+                              },
+                              "id": {
+                                "type": "integer"
+                              },
+                              "type": {
+                                "type": "string"
+                              }
+                            }
+                          }
+                        },
+                        "accounts": {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          }
+                        },
+                        "node_count": {
+                          "type": "object",
+                          "properties": {
+                            "number": {
+                              "type": "integer"
+                            },
+                            "set": {
+                              "type": "boolean"
+                            },
+                            "infinite": {
+                              "type": "boolean"
+                            }
+                          }
+                        },
+                        "node_list": {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          }
+                        },
+                        "purge_completed": {
+                          "type": "object",
+                          "properties": {
+                            "time": {
+                              "type": "object",
+                              "properties": {
+                                "number": {
+                                  "type": "integer"
+                                },
+                                "set": {
+                                  "type": "boolean"
+                                },
+                                "infinite": {
+                                  "type": "boolean"
+                                }
+                              }
+                            }
+                          }
+                        },
+                        "core_count": {
+                          "type": "object",
+                          "properties": {
+                            "number": {
+                              "type": "integer"
+                            },
+                            "set": {
+                              "type": "boolean"
+                            },
+                            "infinite": {
+                              "type": "boolean"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "meta": {
+                    "type": "object",
+                    "properties": {
+                      "slurm": {
+                        "type": "object",
+                        "properties": {
+                          "cluster": {
+                            "type": "string"
+                          },
+                          "release": {
+                            "type": "string"
+                          },
+                          "version": {
+                            "type": "object",
+                            "properties": {
+                              "major": {
+                                "type": "string"
+                              },
+                              "minor": {
+                                "type": "string"
+                              },
+                              "micro": {
+                                "type": "string"
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "plugin": {
+                        "type": "object",
+                        "properties": {
+                          "accounting_storage": {
+                            "type": "string"
+                          },
+                          "name": {
+                            "type": "string"
+                          },
+                          "type": {
+                            "type": "string"
+                          },
+                          "data_parser": {
+                            "type": "string"
+                          }
+                        }
+                      },
+                      "client": {
+                        "type": "object",
+                        "properties": {
+                          "source": {
+                            "type": "string"
+                          },
+                          "user": {
+                            "type": "string"
+                          },
+                          "group": {
+                            "type": "string"
+                          }
+                        }
+                      },
+                      "command": {
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  },
+                  "warnings": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "description": {
+                          "type": "string"
+                        },
+                        "source": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  },
+                  "errors": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "description": {
+                          "type": "string"
+                        },
+                        "source": {
+                          "type": "string"
+                        },
+                        "error": {
+                          "type": "string"
+                        },
+                        "error_number": {
+                          "type": "integer"
+                        }
+                      }
+                    }
+                  }
+                },
+                "required": [
+                  "reservations",
+                  "meta",
+                  "warnings",
+                  "errors"
+                ]
               }
             }
           }
@@ -28921,7 +29560,123 @@
           "content": {
             "application/json": {
               "schema": {
-                "type": "object"
+                "type": "object",
+                "properties": {
+                  "job_id": {
+                    "type": "integer"
+                  },
+                  "meta": {
+                    "type": "object",
+                    "properties": {
+                      "slurm": {
+                        "type": "object",
+                        "properties": {
+                          "cluster": {
+                            "type": "string"
+                          },
+                          "release": {
+                            "type": "string"
+                          },
+                          "version": {
+                            "type": "object",
+                            "properties": {
+                              "major": {
+                                "type": "string"
+                              },
+                              "minor": {
+                                "type": "string"
+                              },
+                              "micro": {
+                                "type": "string"
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "plugin": {
+                        "type": "object",
+                        "properties": {
+                          "accounting_storage": {
+                            "type": "string"
+                          },
+                          "name": {
+                            "type": "string"
+                          },
+                          "type": {
+                            "type": "string"
+                          },
+                          "data_parser": {
+                            "type": "string"
+                          }
+                        }
+                      },
+                      "client": {
+                        "type": "object",
+                        "properties": {
+                          "source": {
+                            "type": "string"
+                          },
+                          "user": {
+                            "type": "string"
+                          },
+                          "group": {
+                            "type": "string"
+                          }
+                        }
+                      },
+                      "command": {
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  },
+                  "warnings": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "description": {
+                          "type": "string"
+                        },
+                        "source": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  },
+                  "job_submit_user_msg": {
+                    "type": "string"
+                  },
+                  "errors": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "description": {
+                          "type": "string"
+                        },
+                        "source": {
+                          "type": "string"
+                        },
+                        "error": {
+                          "type": "string"
+                        },
+                        "error_number": {
+                          "type": "integer"
+                        }
+                      }
+                    }
+                  }
+                },
+                "required": [
+                  "job_id",
+                  "meta",
+                  "warnings",
+                  "job_submit_user_msg",
+                  "errors"
+                ]
               }
             }
           }
@@ -29202,7 +29957,127 @@
           "content": {
             "application/json": {
               "schema": {
-                "type": "object"
+                "type": "object",
+                "properties": {
+                  "job_id": {
+                    "type": "integer"
+                  },
+                  "meta": {
+                    "type": "object",
+                    "properties": {
+                      "slurm": {
+                        "type": "object",
+                        "properties": {
+                          "cluster": {
+                            "type": "string"
+                          },
+                          "release": {
+                            "type": "string"
+                          },
+                          "version": {
+                            "type": "object",
+                            "properties": {
+                              "major": {
+                                "type": "string"
+                              },
+                              "minor": {
+                                "type": "string"
+                              },
+                              "micro": {
+                                "type": "string"
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "plugin": {
+                        "type": "object",
+                        "properties": {
+                          "accounting_storage": {
+                            "type": "string"
+                          },
+                          "name": {
+                            "type": "string"
+                          },
+                          "type": {
+                            "type": "string"
+                          },
+                          "data_parser": {
+                            "type": "string"
+                          }
+                        }
+                      },
+                      "client": {
+                        "type": "object",
+                        "properties": {
+                          "source": {
+                            "type": "string"
+                          },
+                          "user": {
+                            "type": "string"
+                          },
+                          "group": {
+                            "type": "string"
+                          }
+                        }
+                      },
+                      "command": {
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  },
+                  "warnings": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "description": {
+                          "type": "string"
+                        },
+                        "source": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  },
+                  "step_id": {
+                    "type": "string"
+                  },
+                  "job_submit_user_msg": {
+                    "type": "string"
+                  },
+                  "errors": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "description": {
+                          "type": "string"
+                        },
+                        "source": {
+                          "type": "string"
+                        },
+                        "error": {
+                          "type": "string"
+                        },
+                        "error_number": {
+                          "type": "integer"
+                        }
+                      }
+                    }
+                  }
+                },
+                "required": [
+                  "job_id",
+                  "meta",
+                  "warnings",
+                  "step_id",
+                  "job_submit_user_msg",
+                  "errors"
+                ]
               }
             }
           }
@@ -29459,7 +30334,115 @@
           "content": {
             "application/json": {
               "schema": {
-                "type": "object"
+                "type": "object",
+                "properties": {
+                  "meta": {
+                    "type": "object",
+                    "properties": {
+                      "slurm": {
+                        "type": "object",
+                        "properties": {
+                          "cluster": {
+                            "type": "string"
+                          },
+                          "release": {
+                            "type": "string"
+                          },
+                          "version": {
+                            "type": "object",
+                            "properties": {
+                              "major": {
+                                "type": "string"
+                              },
+                              "minor": {
+                                "type": "string"
+                              },
+                              "micro": {
+                                "type": "string"
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "plugin": {
+                        "type": "object",
+                        "properties": {
+                          "accounting_storage": {
+                            "type": "string"
+                          },
+                          "name": {
+                            "type": "string"
+                          },
+                          "type": {
+                            "type": "string"
+                          },
+                          "data_parser": {
+                            "type": "string"
+                          }
+                        }
+                      },
+                      "client": {
+                        "type": "object",
+                        "properties": {
+                          "source": {
+                            "type": "string"
+                          },
+                          "user": {
+                            "type": "string"
+                          },
+                          "group": {
+                            "type": "string"
+                          }
+                        }
+                      },
+                      "command": {
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  },
+                  "warnings": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "description": {
+                          "type": "string"
+                        },
+                        "source": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  },
+                  "errors": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "description": {
+                          "type": "string"
+                        },
+                        "source": {
+                          "type": "string"
+                        },
+                        "error": {
+                          "type": "string"
+                        },
+                        "error_number": {
+                          "type": "integer"
+                        }
+                      }
+                    }
+                  }
+                },
+                "required": [
+                  "meta",
+                  "warnings",
+                  "errors"
+                ]
               }
             }
           }
@@ -30082,7 +31065,298 @@
           "content": {
             "application/json": {
               "schema": {
-                "type": "object"
+                "type": "object",
+                "properties": {
+                  "reservations": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "end_time": {
+                          "type": "object",
+                          "properties": {
+                            "number": {
+                              "type": "integer"
+                            },
+                            "set": {
+                              "type": "boolean"
+                            },
+                            "infinite": {
+                              "type": "boolean"
+                            }
+                          }
+                        },
+                        "flags": {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          }
+                        },
+                        "groups": {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          }
+                        },
+                        "users": {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          }
+                        },
+                        "max_start_delay": {
+                          "type": "object",
+                          "properties": {
+                            "number": {
+                              "type": "integer"
+                            },
+                            "set": {
+                              "type": "boolean"
+                            },
+                            "infinite": {
+                              "type": "boolean"
+                            }
+                          }
+                        },
+                        "duration": {
+                          "type": "object",
+                          "properties": {
+                            "number": {
+                              "type": "integer"
+                            },
+                            "set": {
+                              "type": "boolean"
+                            },
+                            "infinite": {
+                              "type": "boolean"
+                            }
+                          }
+                        },
+                        "features": {
+                          "type": "string"
+                        },
+                        "start_time": {
+                          "type": "object",
+                          "properties": {
+                            "number": {
+                              "type": "integer"
+                            },
+                            "set": {
+                              "type": "boolean"
+                            },
+                            "infinite": {
+                              "type": "boolean"
+                            }
+                          }
+                        },
+                        "burst_buffer": {
+                          "type": "string"
+                        },
+                        "licenses": {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          }
+                        },
+                        "partition": {
+                          "type": "string"
+                        },
+                        "name": {
+                          "type": "string"
+                        },
+                        "comment": {
+                          "type": "string"
+                        },
+                        "tres": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "name": {
+                                "type": "string"
+                              },
+                              "count": {
+                                "type": "integer"
+                              },
+                              "id": {
+                                "type": "integer"
+                              },
+                              "type": {
+                                "type": "string"
+                              }
+                            }
+                          }
+                        },
+                        "accounts": {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          }
+                        },
+                        "node_count": {
+                          "type": "object",
+                          "properties": {
+                            "number": {
+                              "type": "integer"
+                            },
+                            "set": {
+                              "type": "boolean"
+                            },
+                            "infinite": {
+                              "type": "boolean"
+                            }
+                          }
+                        },
+                        "node_list": {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          }
+                        },
+                        "purge_completed": {
+                          "type": "object",
+                          "properties": {
+                            "time": {
+                              "type": "object",
+                              "properties": {
+                                "number": {
+                                  "type": "integer"
+                                },
+                                "set": {
+                                  "type": "boolean"
+                                },
+                                "infinite": {
+                                  "type": "boolean"
+                                }
+                              }
+                            }
+                          }
+                        },
+                        "core_count": {
+                          "type": "object",
+                          "properties": {
+                            "number": {
+                              "type": "integer"
+                            },
+                            "set": {
+                              "type": "boolean"
+                            },
+                            "infinite": {
+                              "type": "boolean"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "meta": {
+                    "type": "object",
+                    "properties": {
+                      "slurm": {
+                        "type": "object",
+                        "properties": {
+                          "cluster": {
+                            "type": "string"
+                          },
+                          "release": {
+                            "type": "string"
+                          },
+                          "version": {
+                            "type": "object",
+                            "properties": {
+                              "major": {
+                                "type": "string"
+                              },
+                              "minor": {
+                                "type": "string"
+                              },
+                              "micro": {
+                                "type": "string"
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "plugin": {
+                        "type": "object",
+                        "properties": {
+                          "accounting_storage": {
+                            "type": "string"
+                          },
+                          "name": {
+                            "type": "string"
+                          },
+                          "type": {
+                            "type": "string"
+                          },
+                          "data_parser": {
+                            "type": "string"
+                          }
+                        }
+                      },
+                      "client": {
+                        "type": "object",
+                        "properties": {
+                          "source": {
+                            "type": "string"
+                          },
+                          "user": {
+                            "type": "string"
+                          },
+                          "group": {
+                            "type": "string"
+                          }
+                        }
+                      },
+                      "command": {
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  },
+                  "warnings": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "description": {
+                          "type": "string"
+                        },
+                        "source": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  },
+                  "errors": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "description": {
+                          "type": "string"
+                        },
+                        "source": {
+                          "type": "string"
+                        },
+                        "error": {
+                          "type": "string"
+                        },
+                        "error_number": {
+                          "type": "integer"
+                        }
+                      }
+                    }
+                  }
+                },
+                "required": [
+                  "reservations",
+                  "meta",
+                  "warnings",
+                  "errors"
+                ]
               }
             }
           }
@@ -31116,7 +32390,115 @@
           "content": {
             "application/json": {
               "schema": {
-                "type": "object"
+                "type": "object",
+                "properties": {
+                  "meta": {
+                    "type": "object",
+                    "properties": {
+                      "slurm": {
+                        "type": "object",
+                        "properties": {
+                          "cluster": {
+                            "type": "string"
+                          },
+                          "release": {
+                            "type": "string"
+                          },
+                          "version": {
+                            "type": "object",
+                            "properties": {
+                              "major": {
+                                "type": "string"
+                              },
+                              "minor": {
+                                "type": "string"
+                              },
+                              "micro": {
+                                "type": "string"
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "plugin": {
+                        "type": "object",
+                        "properties": {
+                          "accounting_storage": {
+                            "type": "string"
+                          },
+                          "name": {
+                            "type": "string"
+                          },
+                          "type": {
+                            "type": "string"
+                          },
+                          "data_parser": {
+                            "type": "string"
+                          }
+                        }
+                      },
+                      "client": {
+                        "type": "object",
+                        "properties": {
+                          "source": {
+                            "type": "string"
+                          },
+                          "user": {
+                            "type": "string"
+                          },
+                          "group": {
+                            "type": "string"
+                          }
+                        }
+                      },
+                      "command": {
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  },
+                  "warnings": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "description": {
+                          "type": "string"
+                        },
+                        "source": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  },
+                  "errors": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "description": {
+                          "type": "string"
+                        },
+                        "source": {
+                          "type": "string"
+                        },
+                        "error": {
+                          "type": "string"
+                        },
+                        "error_number": {
+                          "type": "integer"
+                        }
+                      }
+                    }
+                  }
+                },
+                "required": [
+                  "meta",
+                  "warnings",
+                  "errors"
+                ]
               }
             }
           }
@@ -34967,7 +36349,115 @@
           "content": {
             "application/json": {
               "schema": {
-                "type": "object"
+                "type": "object",
+                "properties": {
+                  "meta": {
+                    "type": "object",
+                    "properties": {
+                      "slurm": {
+                        "type": "object",
+                        "properties": {
+                          "cluster": {
+                            "type": "string"
+                          },
+                          "release": {
+                            "type": "string"
+                          },
+                          "version": {
+                            "type": "object",
+                            "properties": {
+                              "major": {
+                                "type": "string"
+                              },
+                              "minor": {
+                                "type": "string"
+                              },
+                              "micro": {
+                                "type": "string"
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "plugin": {
+                        "type": "object",
+                        "properties": {
+                          "accounting_storage": {
+                            "type": "string"
+                          },
+                          "name": {
+                            "type": "string"
+                          },
+                          "type": {
+                            "type": "string"
+                          },
+                          "data_parser": {
+                            "type": "string"
+                          }
+                        }
+                      },
+                      "client": {
+                        "type": "object",
+                        "properties": {
+                          "source": {
+                            "type": "string"
+                          },
+                          "user": {
+                            "type": "string"
+                          },
+                          "group": {
+                            "type": "string"
+                          }
+                        }
+                      },
+                      "command": {
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  },
+                  "warnings": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "description": {
+                          "type": "string"
+                        },
+                        "source": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  },
+                  "errors": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "description": {
+                          "type": "string"
+                        },
+                        "source": {
+                          "type": "string"
+                        },
+                        "error": {
+                          "type": "string"
+                        },
+                        "error_number": {
+                          "type": "integer"
+                        }
+                      }
+                    }
+                  }
+                },
+                "required": [
+                  "meta",
+                  "warnings",
+                  "errors"
+                ]
               }
             }
           }
@@ -35647,7 +37137,115 @@
           "content": {
             "application/json": {
               "schema": {
-                "type": "object"
+                "type": "object",
+                "properties": {
+                  "meta": {
+                    "type": "object",
+                    "properties": {
+                      "slurm": {
+                        "type": "object",
+                        "properties": {
+                          "cluster": {
+                            "type": "string"
+                          },
+                          "release": {
+                            "type": "string"
+                          },
+                          "version": {
+                            "type": "object",
+                            "properties": {
+                              "major": {
+                                "type": "string"
+                              },
+                              "minor": {
+                                "type": "string"
+                              },
+                              "micro": {
+                                "type": "string"
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "plugin": {
+                        "type": "object",
+                        "properties": {
+                          "accounting_storage": {
+                            "type": "string"
+                          },
+                          "name": {
+                            "type": "string"
+                          },
+                          "type": {
+                            "type": "string"
+                          },
+                          "data_parser": {
+                            "type": "string"
+                          }
+                        }
+                      },
+                      "client": {
+                        "type": "object",
+                        "properties": {
+                          "source": {
+                            "type": "string"
+                          },
+                          "user": {
+                            "type": "string"
+                          },
+                          "group": {
+                            "type": "string"
+                          }
+                        }
+                      },
+                      "command": {
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  },
+                  "warnings": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "description": {
+                          "type": "string"
+                        },
+                        "source": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  },
+                  "errors": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "description": {
+                          "type": "string"
+                        },
+                        "source": {
+                          "type": "string"
+                        },
+                        "error": {
+                          "type": "string"
+                        },
+                        "error_number": {
+                          "type": "integer"
+                        }
+                      }
+                    }
+                  }
+                },
+                "required": [
+                  "meta",
+                  "warnings",
+                  "errors"
+                ]
               }
             }
           }
@@ -39036,7 +40634,115 @@
           "content": {
             "application/json": {
               "schema": {
-                "type": "object"
+                "type": "object",
+                "properties": {
+                  "meta": {
+                    "type": "object",
+                    "properties": {
+                      "slurm": {
+                        "type": "object",
+                        "properties": {
+                          "cluster": {
+                            "type": "string"
+                          },
+                          "release": {
+                            "type": "string"
+                          },
+                          "version": {
+                            "type": "object",
+                            "properties": {
+                              "major": {
+                                "type": "string"
+                              },
+                              "minor": {
+                                "type": "string"
+                              },
+                              "micro": {
+                                "type": "string"
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "plugin": {
+                        "type": "object",
+                        "properties": {
+                          "accounting_storage": {
+                            "type": "string"
+                          },
+                          "name": {
+                            "type": "string"
+                          },
+                          "type": {
+                            "type": "string"
+                          },
+                          "data_parser": {
+                            "type": "string"
+                          }
+                        }
+                      },
+                      "client": {
+                        "type": "object",
+                        "properties": {
+                          "source": {
+                            "type": "string"
+                          },
+                          "user": {
+                            "type": "string"
+                          },
+                          "group": {
+                            "type": "string"
+                          }
+                        }
+                      },
+                      "command": {
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  },
+                  "warnings": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "description": {
+                          "type": "string"
+                        },
+                        "source": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  },
+                  "errors": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "description": {
+                          "type": "string"
+                        },
+                        "source": {
+                          "type": "string"
+                        },
+                        "error": {
+                          "type": "string"
+                        },
+                        "error_number": {
+                          "type": "integer"
+                        }
+                      }
+                    }
+                  }
+                },
+                "required": [
+                  "meta",
+                  "warnings",
+                  "errors"
+                ]
               }
             }
           }
@@ -42187,7 +43893,122 @@
           "content": {
             "application/json": {
               "schema": {
-                "type": "object"
+                "type": "object",
+                "properties": {
+                  "meta": {
+                    "type": "object",
+                    "properties": {
+                      "slurm": {
+                        "type": "object",
+                        "properties": {
+                          "cluster": {
+                            "type": "string"
+                          },
+                          "release": {
+                            "type": "string"
+                          },
+                          "version": {
+                            "type": "object",
+                            "properties": {
+                              "major": {
+                                "type": "string"
+                              },
+                              "minor": {
+                                "type": "string"
+                              },
+                              "micro": {
+                                "type": "string"
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "plugin": {
+                        "type": "object",
+                        "properties": {
+                          "accounting_storage": {
+                            "type": "string"
+                          },
+                          "name": {
+                            "type": "string"
+                          },
+                          "type": {
+                            "type": "string"
+                          },
+                          "data_parser": {
+                            "type": "string"
+                          }
+                        }
+                      },
+                      "client": {
+                        "type": "object",
+                        "properties": {
+                          "source": {
+                            "type": "string"
+                          },
+                          "user": {
+                            "type": "string"
+                          },
+                          "group": {
+                            "type": "string"
+                          }
+                        }
+                      },
+                      "command": {
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  },
+                  "warnings": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "description": {
+                          "type": "string"
+                        },
+                        "source": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  },
+                  "results": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "errors": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "description": {
+                          "type": "string"
+                        },
+                        "source": {
+                          "type": "string"
+                        },
+                        "error": {
+                          "type": "string"
+                        },
+                        "error_number": {
+                          "type": "integer"
+                        }
+                      }
+                    }
+                  }
+                },
+                "required": [
+                  "meta",
+                  "warnings",
+                  "results",
+                  "errors"
+                ]
               }
             }
           }
@@ -42497,7 +44318,122 @@
           "content": {
             "application/json": {
               "schema": {
-                "type": "object"
+                "type": "object",
+                "properties": {
+                  "meta": {
+                    "type": "object",
+                    "properties": {
+                      "slurm": {
+                        "type": "object",
+                        "properties": {
+                          "cluster": {
+                            "type": "string"
+                          },
+                          "release": {
+                            "type": "string"
+                          },
+                          "version": {
+                            "type": "object",
+                            "properties": {
+                              "major": {
+                                "type": "string"
+                              },
+                              "minor": {
+                                "type": "string"
+                              },
+                              "micro": {
+                                "type": "string"
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "plugin": {
+                        "type": "object",
+                        "properties": {
+                          "accounting_storage": {
+                            "type": "string"
+                          },
+                          "name": {
+                            "type": "string"
+                          },
+                          "type": {
+                            "type": "string"
+                          },
+                          "data_parser": {
+                            "type": "string"
+                          }
+                        }
+                      },
+                      "client": {
+                        "type": "object",
+                        "properties": {
+                          "source": {
+                            "type": "string"
+                          },
+                          "user": {
+                            "type": "string"
+                          },
+                          "group": {
+                            "type": "string"
+                          }
+                        }
+                      },
+                      "command": {
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  },
+                  "warnings": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "description": {
+                          "type": "string"
+                        },
+                        "source": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  },
+                  "results": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "errors": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "description": {
+                          "type": "string"
+                        },
+                        "source": {
+                          "type": "string"
+                        },
+                        "error": {
+                          "type": "string"
+                        },
+                        "error_number": {
+                          "type": "integer"
+                        }
+                      }
+                    }
+                  }
+                },
+                "required": [
+                  "meta",
+                  "warnings",
+                  "results",
+                  "errors"
+                ]
               }
             }
           }
@@ -44276,7 +46212,115 @@
           "content": {
             "application/json": {
               "schema": {
-                "type": "object"
+                "type": "object",
+                "properties": {
+                  "meta": {
+                    "type": "object",
+                    "properties": {
+                      "slurm": {
+                        "type": "object",
+                        "properties": {
+                          "cluster": {
+                            "type": "string"
+                          },
+                          "release": {
+                            "type": "string"
+                          },
+                          "version": {
+                            "type": "object",
+                            "properties": {
+                              "major": {
+                                "type": "string"
+                              },
+                              "minor": {
+                                "type": "string"
+                              },
+                              "micro": {
+                                "type": "string"
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "plugin": {
+                        "type": "object",
+                        "properties": {
+                          "accounting_storage": {
+                            "type": "string"
+                          },
+                          "name": {
+                            "type": "string"
+                          },
+                          "type": {
+                            "type": "string"
+                          },
+                          "data_parser": {
+                            "type": "string"
+                          }
+                        }
+                      },
+                      "client": {
+                        "type": "object",
+                        "properties": {
+                          "source": {
+                            "type": "string"
+                          },
+                          "user": {
+                            "type": "string"
+                          },
+                          "group": {
+                            "type": "string"
+                          }
+                        }
+                      },
+                      "command": {
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  },
+                  "warnings": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "description": {
+                          "type": "string"
+                        },
+                        "source": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  },
+                  "errors": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "description": {
+                          "type": "string"
+                        },
+                        "source": {
+                          "type": "string"
+                        },
+                        "error": {
+                          "type": "string"
+                        },
+                        "error_number": {
+                          "type": "integer"
+                        }
+                      }
+                    }
+                  }
+                },
+                "required": [
+                  "meta",
+                  "warnings",
+                  "errors"
+                ]
               }
             }
           }
@@ -44821,7 +46865,115 @@
           "content": {
             "application/json": {
               "schema": {
-                "type": "object"
+                "type": "object",
+                "properties": {
+                  "meta": {
+                    "type": "object",
+                    "properties": {
+                      "slurm": {
+                        "type": "object",
+                        "properties": {
+                          "cluster": {
+                            "type": "string"
+                          },
+                          "release": {
+                            "type": "string"
+                          },
+                          "version": {
+                            "type": "object",
+                            "properties": {
+                              "major": {
+                                "type": "string"
+                              },
+                              "minor": {
+                                "type": "string"
+                              },
+                              "micro": {
+                                "type": "string"
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "plugin": {
+                        "type": "object",
+                        "properties": {
+                          "accounting_storage": {
+                            "type": "string"
+                          },
+                          "name": {
+                            "type": "string"
+                          },
+                          "type": {
+                            "type": "string"
+                          },
+                          "data_parser": {
+                            "type": "string"
+                          }
+                        }
+                      },
+                      "client": {
+                        "type": "object",
+                        "properties": {
+                          "source": {
+                            "type": "string"
+                          },
+                          "user": {
+                            "type": "string"
+                          },
+                          "group": {
+                            "type": "string"
+                          }
+                        }
+                      },
+                      "command": {
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  },
+                  "warnings": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "description": {
+                          "type": "string"
+                        },
+                        "source": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  },
+                  "errors": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "description": {
+                          "type": "string"
+                        },
+                        "source": {
+                          "type": "string"
+                        },
+                        "error": {
+                          "type": "string"
+                        },
+                        "error_number": {
+                          "type": "integer"
+                        }
+                      }
+                    }
+                  }
+                },
+                "required": [
+                  "meta",
+                  "warnings",
+                  "errors"
+                ]
               }
             }
           }
@@ -45117,7 +47269,115 @@
           "content": {
             "application/json": {
               "schema": {
-                "type": "object"
+                "type": "object",
+                "properties": {
+                  "meta": {
+                    "type": "object",
+                    "properties": {
+                      "slurm": {
+                        "type": "object",
+                        "properties": {
+                          "cluster": {
+                            "type": "string"
+                          },
+                          "release": {
+                            "type": "string"
+                          },
+                          "version": {
+                            "type": "object",
+                            "properties": {
+                              "major": {
+                                "type": "string"
+                              },
+                              "minor": {
+                                "type": "string"
+                              },
+                              "micro": {
+                                "type": "string"
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "plugin": {
+                        "type": "object",
+                        "properties": {
+                          "accounting_storage": {
+                            "type": "string"
+                          },
+                          "name": {
+                            "type": "string"
+                          },
+                          "type": {
+                            "type": "string"
+                          },
+                          "data_parser": {
+                            "type": "string"
+                          }
+                        }
+                      },
+                      "client": {
+                        "type": "object",
+                        "properties": {
+                          "source": {
+                            "type": "string"
+                          },
+                          "user": {
+                            "type": "string"
+                          },
+                          "group": {
+                            "type": "string"
+                          }
+                        }
+                      },
+                      "command": {
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  },
+                  "warnings": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "description": {
+                          "type": "string"
+                        },
+                        "source": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  },
+                  "errors": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "description": {
+                          "type": "string"
+                        },
+                        "source": {
+                          "type": "string"
+                        },
+                        "error": {
+                          "type": "string"
+                        },
+                        "error_number": {
+                          "type": "integer"
+                        }
+                      }
+                    }
+                  }
+                },
+                "required": [
+                  "meta",
+                  "warnings",
+                  "errors"
+                ]
               }
             }
           }
@@ -45413,7 +47673,115 @@
           "content": {
             "application/json": {
               "schema": {
-                "type": "object"
+                "type": "object",
+                "properties": {
+                  "meta": {
+                    "type": "object",
+                    "properties": {
+                      "slurm": {
+                        "type": "object",
+                        "properties": {
+                          "cluster": {
+                            "type": "string"
+                          },
+                          "release": {
+                            "type": "string"
+                          },
+                          "version": {
+                            "type": "object",
+                            "properties": {
+                              "major": {
+                                "type": "string"
+                              },
+                              "minor": {
+                                "type": "string"
+                              },
+                              "micro": {
+                                "type": "string"
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "plugin": {
+                        "type": "object",
+                        "properties": {
+                          "accounting_storage": {
+                            "type": "string"
+                          },
+                          "name": {
+                            "type": "string"
+                          },
+                          "type": {
+                            "type": "string"
+                          },
+                          "data_parser": {
+                            "type": "string"
+                          }
+                        }
+                      },
+                      "client": {
+                        "type": "object",
+                        "properties": {
+                          "source": {
+                            "type": "string"
+                          },
+                          "user": {
+                            "type": "string"
+                          },
+                          "group": {
+                            "type": "string"
+                          }
+                        }
+                      },
+                      "command": {
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  },
+                  "warnings": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "description": {
+                          "type": "string"
+                        },
+                        "source": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  },
+                  "errors": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "description": {
+                          "type": "string"
+                        },
+                        "source": {
+                          "type": "string"
+                        },
+                        "error": {
+                          "type": "string"
+                        },
+                        "error_number": {
+                          "type": "integer"
+                        }
+                      }
+                    }
+                  }
+                },
+                "required": [
+                  "meta",
+                  "warnings",
+                  "errors"
+                ]
               }
             }
           }
@@ -45678,7 +48046,119 @@
           "content": {
             "application/json": {
               "schema": {
-                "type": "object"
+                "type": "object",
+                "properties": {
+                  "meta": {
+                    "type": "object",
+                    "properties": {
+                      "slurm": {
+                        "type": "object",
+                        "properties": {
+                          "cluster": {
+                            "type": "string"
+                          },
+                          "release": {
+                            "type": "string"
+                          },
+                          "version": {
+                            "type": "object",
+                            "properties": {
+                              "major": {
+                                "type": "string"
+                              },
+                              "minor": {
+                                "type": "string"
+                              },
+                              "micro": {
+                                "type": "string"
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "plugin": {
+                        "type": "object",
+                        "properties": {
+                          "accounting_storage": {
+                            "type": "string"
+                          },
+                          "name": {
+                            "type": "string"
+                          },
+                          "type": {
+                            "type": "string"
+                          },
+                          "data_parser": {
+                            "type": "string"
+                          }
+                        }
+                      },
+                      "client": {
+                        "type": "object",
+                        "properties": {
+                          "source": {
+                            "type": "string"
+                          },
+                          "user": {
+                            "type": "string"
+                          },
+                          "group": {
+                            "type": "string"
+                          }
+                        }
+                      },
+                      "command": {
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  },
+                  "warnings": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "description": {
+                          "type": "string"
+                        },
+                        "source": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  },
+                  "errors": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "description": {
+                          "type": "string"
+                        },
+                        "source": {
+                          "type": "string"
+                        },
+                        "error": {
+                          "type": "string"
+                        },
+                        "error_number": {
+                          "type": "integer"
+                        }
+                      }
+                    }
+                  },
+                  "added_accounts": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "meta",
+                  "warnings",
+                  "errors",
+                  "added_accounts"
+                ]
               }
             }
           }
@@ -45943,7 +48423,119 @@
           "content": {
             "application/json": {
               "schema": {
-                "type": "object"
+                "type": "object",
+                "properties": {
+                  "added_users": {
+                    "type": "string"
+                  },
+                  "meta": {
+                    "type": "object",
+                    "properties": {
+                      "slurm": {
+                        "type": "object",
+                        "properties": {
+                          "cluster": {
+                            "type": "string"
+                          },
+                          "release": {
+                            "type": "string"
+                          },
+                          "version": {
+                            "type": "object",
+                            "properties": {
+                              "major": {
+                                "type": "string"
+                              },
+                              "minor": {
+                                "type": "string"
+                              },
+                              "micro": {
+                                "type": "string"
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "plugin": {
+                        "type": "object",
+                        "properties": {
+                          "accounting_storage": {
+                            "type": "string"
+                          },
+                          "name": {
+                            "type": "string"
+                          },
+                          "type": {
+                            "type": "string"
+                          },
+                          "data_parser": {
+                            "type": "string"
+                          }
+                        }
+                      },
+                      "client": {
+                        "type": "object",
+                        "properties": {
+                          "source": {
+                            "type": "string"
+                          },
+                          "user": {
+                            "type": "string"
+                          },
+                          "group": {
+                            "type": "string"
+                          }
+                        }
+                      },
+                      "command": {
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  },
+                  "warnings": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "description": {
+                          "type": "string"
+                        },
+                        "source": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  },
+                  "errors": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "description": {
+                          "type": "string"
+                        },
+                        "source": {
+                          "type": "string"
+                        },
+                        "error": {
+                          "type": "string"
+                        },
+                        "error_number": {
+                          "type": "integer"
+                        }
+                      }
+                    }
+                  }
+                },
+                "required": [
+                  "added_users",
+                  "meta",
+                  "warnings",
+                  "errors"
+                ]
               }
             }
           }
